@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
+
 """
 
 from pathlib import Path
@@ -38,16 +39,20 @@ SITE_ID = 2
 
 
 INSTALLED_APPS = [
-    'orders.apps.OrdersConfig',
-    'user.apps.UserConfig',
+    'django.contrib.contenttypes',
+
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', # API
     'django.contrib.sites',
+    'orders.apps.OrdersConfig',
+    'user.apps.UserConfig',
+    'oauth2_provider', # OAuth2
+    'social_django', # OAuth2
+    
 
     'allauth',
     'allauth.account',
@@ -86,7 +91,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
     "allauth.account.middleware.AccountMiddleware",
 
 ]
@@ -207,3 +211,4 @@ LOGOUT_REDIRECT_URL = ""
 
 
 #SOCIALACCOUNT_LOGIN_ON_GET=True
+

@@ -21,11 +21,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from user import views as user_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    path('', user_views.login, name='login'),
+    #path('logout/', user_views.logout_view, name='logout'),
     # path('social-auth/', include('social_django.urls', namespace='social')), # OAuth2
-    path('', include('user.urls')),
+    path('', include('orders.urls')),
 ]

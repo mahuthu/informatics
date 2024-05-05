@@ -11,8 +11,6 @@ from django.contrib.auth import logout
 def login(request):
     return render(request, 'user/login.html')
 
-def home(request):
-    return render( request, "user/home.html")
 
 def logout_view(request):
     logout(request)
