@@ -1,0 +1,51 @@
+{% extends "user/base.html" %}
+{% block title %}Orders{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12 mb-3">
+        <h4 class="text-center">Welcome {{ user.username }}</h4>
+    </div>
+</div>
+
+<h1>Create Customer</h1>
+
+    <!-- Customer Creation Form -->
+    <form method="post" action="{% url 'create_customer' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="code">Code:</label>
+        <input type="text" id="code" name="code" required><br>
+        <label for="phone">Phone:</label>
+        <input type="number" id="phone" name="phone">
+        <button type="submit">Create Customer</button>
+    </form>
+
+    <h1>Create Order</h1>
+
+    <!-- Order Creation Form -->
+    <form method="post" action="{% url 'create_order' %}">
+        {% csrf_token %}
+        <label for="customer">Customer:</label>
+        <select id="customer" name="customer">
+            {% for customer in customers %}
+            <option value="{{ customer.id }}" {% if customer.id == customer_created.id %} selected {% endif %}>{{ customer.name }}</option>
+            {% endfor %}
+        </select>
+        {% if customer_created %}
+            <!-- Add the newly created customer to the options -->
+            <option value="{{ customer.id }}" selected>{{ customer_created.name }}</option>
+        {% endif %}
+        <label for="item">Item:</label>
+        <select id="item" name="item">
+            {% for item in items %}
+            <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1">
+        <button type="submit">Create Order</button>
+    </form>
+
+{% endblock %}

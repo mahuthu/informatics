@@ -1,0 +1,70 @@
+# Ignore compiled Python files
+*.pyc
+__pycache__
+
+# Ignore the virtual environment
+venv/
+env/
+
+# Ignore local settings
+*.env
+*.env.local
+*.env.development
+*.env.test
+*.env.production
+.envrc
+
+# Ignore database files
+db.sqlite3
+*.sqlite3
+*.db
+*.bak
+
+# Ignore PostgreSQL backup files
+*.pg_dump
+*.pg_dumpall
+
+# Ignore static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore logs and other generated files
+logs/
+*.log
+*.pot
+*.po
+*.mo
+*.tmp
+*.swp
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore Docker and docker-compose files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Ignore miscellaneous files
+*.zip
+*.gz
+*.tar
+*.rar
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.svg
+*.ico
+*.woff
+*.woff2
+*.eot
+*.ttf
+*.otf
+*.xls
+*.xlsx
+*.csv

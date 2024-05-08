@@ -1,21 +1,20 @@
 {% extends "user/base.html" %}
-{% block title %}Orders Success{% endblock %}
+{% block title %}Order success{% endblock %}
 {% block content %}
-{% load rest_framework %}
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1>Order Success</h1>
             <p>Your order has been placed successfully.</p>
-            <p>Customer: {{ customer }}</p>
-            <p>amount: {{ amount }}</p>
+            <p>Customer: {{ order.customer }}</p>
+            <p>amount: {{ order.amount }}</p>
 
             <p>Order Items:</p>
             <ul>
-                    <li>{{ item }}</li>
+                    <li>{{ order.item }}</li>
             </ul>
         </div>
     </div>
-    
 
 {% endblock %}
