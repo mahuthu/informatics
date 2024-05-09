@@ -4,9 +4,42 @@ from .models import Customer, Order, Item
 from .forms import CustomerForm,  OrderForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+import os
+from dotenv import load_dotenv
+
+import africastalking
 import logging
 
 logger = logging.getLogger(__name__)
+
+
+load_dotenv()
+username = "sandbox"
+api_key = "527308bf8c52f133fc68bca976a3d34e2186bece67aa39290d7dc790cbd15b46"
+
+africastalking.initialize(username, api_key)
+sms = africastalking.SMS
+
+
+
+def send_sms(pk):
+    recipients = ['+254726258462']
+    sender = "informatics" #alphanumeric sender ID
+    order = Order.objects.get(id=pk)
+    message = f"Your order #{order.pk} for {order.quantity} {order.item.name} has been placed successfully!"
+    try:
+        response = sms.send(message, recipients, sender)
+        logger.debug(response)
+
+
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+
+    
+
+    
+
+
 
 
 
@@ -18,6 +51,10 @@ def home1(request):
 def order_detail(request, pk):
     order = Order.objects.get(id=pk)
     return render(request, 'orders/order_detail.html', {'order': order})
+
+
+
+
 
 
 def CreateCustomer(request):
@@ -62,6 +99,10 @@ def CreateOrder(request):
         if order_form.is_valid():
             order = order_form.save()
             logger.debug(f"order saved: {order}")  # Debugging statement to log saved customer
+
+            send_sms(order.pk)
+
+
             return redirect('order_detail', pk=order.pk)
         else:
             logger.debug(f"Order form errors: {order_form.errors}")  # Debugging statement for order form errors
