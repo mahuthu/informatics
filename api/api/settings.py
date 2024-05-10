@@ -143,15 +143,16 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
+        'NAME': "api",
+        'USER': "postgres",
+        'PASSWORD': "Mahuthu8108",
+        'HOST': "localhost",
+        'PORT': "5432",
 
     }
 
 }
+
 
 
 # Password validation

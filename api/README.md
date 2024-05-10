@@ -43,15 +43,21 @@ pip install -r requirements.txt
 
 5. Set up Google OAuth credentials and configure authentication settings.
 
+6 Set uo Africas talking credentials and configure authentication settings. this is the username, api key and the sender id.
+
 6. Run migrations:
 
-python manage.py makemigrations
-python manage.py 
+    python manage.py makemigrations
+
+    python manage.py migrate
 
 7. Start the development server:
-python manage.py runserver
+    python manage.py runserver
 
 Access the application at http://localhost:8000.
+
+superuser - jona
+password - mahuthu8108
 
 ## Deployment
 1. Set up an AWS account and configure AWS credentials on your machine.
@@ -63,7 +69,7 @@ Access the application at http://localhost:8000.
 
 4. Create a CodeDeploy application and deployment group.
 
-5. Configure the scripts, buildspec.yml, appspec.yml file for CodeDeploy deployment.
+5. Configure the scripts, buildspec.yml, appspec.yml file for CodeDeploy         deployment.
 
 6. Push your changes to the AWS CodeCommit repository.
 
@@ -72,7 +78,7 @@ Access the application at http://localhost:8000.
 ## Usage
 - Open the application in your web browser.
 
-- Navigate to the Customer Management section to add, edit, or delete customers.
+- Navigate to the Customer Management section to add customers.
 
 - Go to the Order Submission page to select a customer, choose items, Quantity and submit an order.
 
