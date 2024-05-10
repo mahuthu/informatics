@@ -87,3 +87,6 @@ password - mahuthu8108
 - Contributing
 Contributions are welcome! If you have suggestions, enhancements, or bug fixes, please fork the repository and submit a pull request.
 
+**shareable links:** http://ec2-18-130-110-248.eu-west-2.compute.amazonaws.com
+
+                    https://informatics-j7hq.onrender.com
