@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Customer Order Management System built using Django and PostgreSQL. It allows users to input or select customers from a list and choose items from a dropdown list to submit an order along with relevant quantity.The amount is calculated automatically and the user is redirected to a success page. Additionally, it integrates Africa's Talking API to send customers a response once their order is successfully submitted. The system is deployed on Amazon Web Services (AWS) using CodeDeploy for Continuous Integration/Continuous Deployment (CI/CD) pipeline
+This project is a Customer Order Management System built using Django and PostgreSQL. It allows users to input or select customers from a list and choose items from a dropdown menu. The user also adds a given quantity for the item chosen to complete the order alo.The total amount which is a product of the item nd quntity is calculated automatically and the user is redirected to a success page with the given order details. Additionally, it integrates Africa's Talking API to send customers a response once their order is successfully submitted. The system is deployed on Amazon Web Services (AWS) using CodeDeploy for Continuous Integration/Continuous Deployment (CI/CD) pipeline
 
 ## Features
 
@@ -65,11 +65,11 @@ password - mahuthu8108
 
 2. Create an IAM role with necessary permissions for CodeDeploy.
 
-3. Install AWS CLI and configure it with your AWS credentials.
+3. Use putty SSH to connect and configure the ec2 instance.
 
 4. Create a CodeDeploy application and deployment group.
 
-5. Configure the scripts, buildspec.yml, appspec.yml file for CodeDeploy         deployment.
+5. Configure the scripts, buildspec.yml, appspec.yml file for CodeDeploy   deployment.
 
 6. Push your changes to the AWS CodeCommit repository.
 
@@ -77,6 +77,8 @@ password - mahuthu8108
 
 ## Usage
 - Open the application in your web browser.
+
+- Login or sign up for new users
 
 - Navigate to the Customer Management section to add customers.
 
@@ -87,6 +89,8 @@ password - mahuthu8108
 - Contributing
 Contributions are welcome! If you have suggestions, enhancements, or bug fixes, please fork the repository and submit a pull request.
 
-**shareable links:** http://ec2-18-130-110-248.eu-west-2.compute.amazonaws.com
+**links:** 
 
-                    https://informatics-j7hq.onrender.com
+http://ec2-18-130-110-248.eu-west-2.compute.amazonaws.com
+
+https://informatics-j7hq.onrender.com
