@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-3w#l0sxp-ucz2kp-y0c%0(hwk1hfd67t&&rltlb0618c_-mdyy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google", # new
     'crispy_forms',
     "crispy_bootstrap4",    
+    'whitenoise.runserver_nostatic',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
@@ -84,6 +85,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
 
     'django.middleware.common.CommonMiddleware',
@@ -207,10 +210,10 @@ SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
 LOGIN_REDIRECT_URL = ""
 LOGOUT_REDIRECT_URL = ""
-SIGNUP  = ""
 LOGIN_URL = "/accounts/login/"
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
+
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_VERIFICATION = "none"
 # SOCIALACCOUNT_FORMS = {

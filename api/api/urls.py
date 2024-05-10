@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from user import views as user_views
+from django.conf import settings # new
+from  django.conf.urls.static import static #new
 
 
 urlpatterns = [
@@ -32,3 +34,7 @@ urlpatterns = [
     # path('social-auth/', include('social_django.urls', namespace='social')), # OAuth2
     path('', include('orders.urls')),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_URL)

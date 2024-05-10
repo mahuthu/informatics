@@ -1,0 +1,40 @@
+version: 0.1
+
+
+environment_variables:
+  plaintext:
+    DJANGO SECRET KEY: ${django_secret_key} 
+    POSTGRES_DB: ${name}  
+    POSTGRES_USER: ${user}
+    POSTGRES_PASSWORD: ${password}
+    POSTGRES_HOST: ${host}
+    POSTGRES_PORT: ${port}
+    AFRICASTALKING_USERNAME: ${username}
+    AFRICASTALKING_API_KEY: ${api_key}
+    DEBUG: True
+    ALLOWED_HOSTS: "*"
+    
+
+phases:
+  pre_build:
+    commands:
+      -echo Prebuild ops
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      pip install python-dotenv
+      
+
+
+  build:
+
+    commands:
+      - echo Build started on `date`
+      python manage.py makemigrations
+      - echo Build completed on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      
+
+
+
